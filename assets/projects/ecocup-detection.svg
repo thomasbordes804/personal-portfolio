@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Object detection: a sliding window scanned over a photo, then a single confident bounding box around a reusable cup">
+  <defs>
+    <style>
+      .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+  </defs>
+
+  <rect width="760" height="320" fill="#FFFFFF"/>
+
+  <!-- ── stage 1: classical sliding window ───────────────────────────── -->
+  <rect x="52" y="72" width="252" height="176" rx="8" fill="#F3EFE9" stroke="#E4E0D8" stroke-width="1.5"/>
+
+  <!-- scanned grid -->
+  <g stroke="#DCD6CB" stroke-width="1">
+    <path d="M52 116h252M52 160h252M52 204h252"/>
+    <path d="M115 72v176M178 72v176M241 72v176"/>
+  </g>
+
+  <!-- the same two cups as stage 2, in the same places -->
+  <g fill="#CFC8BB">
+    <path d="M107 148h44l-6 62h-32z"/>
+    <path d="M105 143h48v8h-48z"/>
+    <path d="M224 168h34l-5 42h-24z"/>
+    <path d="M222 163h38v6h-38z"/>
+  </g>
+
+  <!-- the window itself, plus the false positives it leaves behind -->
+  <rect x="96" y="126" width="63" height="44" fill="none" stroke="#9A9A9A" stroke-width="2" stroke-dasharray="6 5"/>
+  <rect x="112" y="146" width="63" height="44" fill="none" stroke="#BDB6A9" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="132" y="158" width="63" height="44" fill="none" stroke="#BDB6A9" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="206" y="156" width="63" height="44" fill="none" stroke="#BDB6A9" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <text class="mono" x="52" y="278" font-size="20" fill="#9A9A9A">sliding window + SVM</text>
+
+  <!-- ── the arrow between stages ────────────────────────────────────── -->
+  <g stroke="#C8C1B4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M334 160h72"/>
+    <path d="M396 149l12 11-12 11"/>
+  </g>
+
+  <!-- ── stage 2: fine-tuned YOLOv5x ─────────────────────────────────── -->
+  <rect x="440" y="72" width="252" height="176" rx="8" fill="#F3EFE9" stroke="#E4E0D8" stroke-width="1.5"/>
+
+  <g fill="#CFC8BB">
+    <path d="M495 148h44l-6 62h-32z"/>
+    <path d="M493 143h48v8h-48z"/>
+    <path d="M612 168h34l-5 42h-24z"/>
+    <path d="M610 163h38v6h-38z"/>
+  </g>
+
+  <!-- one clean detection per cup; labels are staggered so they never collide -->
+  <rect x="485" y="136" width="64" height="82" fill="none" stroke="#FF5A36" stroke-width="3"/>
+  <rect x="485" y="117" width="82" height="19" fill="#FF5A36"/>
+  <text class="mono" x="491" y="131" font-size="13" fill="#FFFFFF">ecocup .94</text>
+
+  <rect x="602" y="156" width="54" height="62" fill="none" stroke="#FF5A36" stroke-width="3"/>
+  <rect x="602" y="137" width="82" height="19" fill="#FF5A36"/>
+  <text class="mono" x="608" y="151" font-size="13" fill="#FFFFFF">ecocup .88</text>
+
+  <text class="mono" x="440" y="278" font-size="20" fill="#FF5A36">YOLOv5x — F1 79.1</text>
+</svg>

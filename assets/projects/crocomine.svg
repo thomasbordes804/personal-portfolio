@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="A Crocomine board of land and sea cells with neighbour counts, and a cell proved safe by the SAT solver">
+  <defs>
+    <style>
+      .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+  </defs>
+
+  <rect width="760" height="320" fill="#FFFFFF"/>
+
+  <!-- ── the board: land cells are sand, sea cells are blue ──────────── -->
+  <g stroke="#FDFAF7" stroke-width="3">
+    <!-- row 1 -->
+    <rect x="60"  y="56"  width="58" height="58" fill="#EBE1CE"/>
+    <rect x="118" y="56"  width="58" height="58" fill="#EBE1CE"/>
+    <rect x="176" y="56"  width="58" height="58" fill="#D7E7F0"/>
+    <rect x="234" y="56"  width="58" height="58" fill="#D7E7F0"/>
+    <rect x="292" y="56"  width="58" height="58" fill="#D7E7F0"/>
+    <rect x="350" y="56"  width="58" height="58" fill="#EBE1CE"/>
+    <!-- row 2 -->
+    <rect x="60"  y="114" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="118" y="114" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="176" y="114" width="58" height="58" fill="#D7E7F0"/>
+    <rect x="234" y="114" width="58" height="58" fill="#D7E7F0"/>
+    <rect x="292" y="114" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="350" y="114" width="58" height="58" fill="#EBE1CE"/>
+    <!-- row 3 -->
+    <rect x="60"  y="172" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="118" y="172" width="58" height="58" fill="#D7E7F0"/>
+    <rect x="176" y="172" width="58" height="58" fill="#D7E7F0"/>
+    <rect x="234" y="172" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="292" y="172" width="58" height="58" fill="#EBE1CE"/>
+    <rect x="350" y="172" width="58" height="58" fill="#EBE1CE"/>
+  </g>
+
+  <!-- unopened cells sit slightly darker on top of the terrain -->
+  <g fill="#CFC7B7" stroke="#FDFAF7" stroke-width="3">
+    <rect x="234" y="56"  width="58" height="58"/>
+    <rect x="292" y="114" width="58" height="58"/>
+    <rect x="118" y="172" width="58" height="58"/>
+    <rect x="350" y="172" width="58" height="58"/>
+  </g>
+
+  <!-- neighbour counts on the discovered cells -->
+  <g class="mono" font-size="22" fill="#5C5C5C" text-anchor="middle">
+    <text x="89"  y="93">1</text>
+    <text x="147" y="93">1</text>
+    <text x="205" y="93">2</text>
+    <text x="321" y="93">1</text>
+    <text x="379" y="93">0</text>
+    <text x="89"  y="151">1</text>
+    <text x="147" y="151">2</text>
+    <text x="205" y="151">3</text>
+    <text x="263" y="151">2</text>
+    <text x="379" y="151">1</text>
+    <text x="89"  y="209">0</text>
+    <text x="205" y="209">2</text>
+    <text x="263" y="209">1</text>
+    <text x="321" y="209">1</text>
+  </g>
+
+  <!-- animals the solver has proved: tiger on land, shark at sea -->
+  <g class="mono" font-size="26" font-weight="500" text-anchor="middle">
+    <text x="263" y="94"  fill="#FF5A36">S</text>
+    <text x="321" y="152" fill="#FF5A36">T</text>
+  </g>
+
+  <!-- the cell being decided right now -->
+  <rect x="118" y="172" width="58" height="58" fill="none" stroke="#FF5A36" stroke-width="3"/>
+
+  <!-- ── the proof, spelled out beside the board ─────────────────────── -->
+  <g class="mono" font-size="21" fill="#6B6B6B">
+    <text x="452" y="121">KB &#8743; &#172;safe(r3,c2)</text>
+    <text x="452" y="163" fill="#9A9A9A">gophersat &#8594;</text>
+    <text x="452" y="205" fill="#FF5A36">UNSAT &#8658; discover</text>
+  </g>
+  <path d="M452 138h236" stroke="#E4E0D8" stroke-width="1.5"/>
+</svg>
