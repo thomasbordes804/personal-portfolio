@@ -214,6 +214,8 @@ h1, h2, h3, p { margin: 0; }
 }
 .card-plain h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
 .card-plain p { font-size: 13.5px; line-height: 1.65; color: var(--ink-2); }
+/* The numbers are the argument — let them sit up in the ink tone. */
+.card-plain strong { color: var(--ink); font-weight: 600; }
 
 /* ── work ─────────────────────────────────────────────────────────── */
 
